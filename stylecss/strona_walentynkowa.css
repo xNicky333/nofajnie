@@ -64,11 +64,17 @@ body {
 
 .box img {
     max-width: 100%;
+    
+    /* --- NOWE LINIJKI --- */
+    max-height: 300px; /* Zmieniaj tę liczbę (np. 250px, 400px), aż rozmiar będzie idealny */
+    width: auto;       /* Dzięki temu zdjęcie zachowa swoje proporcje i nie będzie rozciągnięte */
+    
     border-radius: 12px;
     border: 5px solid #fce4ec;
     margin-top: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
+
 
 .buttons-container {
     display: flex;
