@@ -1,0 +1,125 @@
+/* --- RESET PODSTAWOWY --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- TŁO STRONY (Spójne z home.html) --- */
+body {
+    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+    min-height: 100vh;
+    padding: 40px 20px; /* Dodajemy marginesy na górze i po bokach */
+}
+
+/* --- PRZYCISK POWROTU --- */
+#przycisk {
+    text-align: center;
+    margin-bottom: 50px; /* Odstęp od galerii */
+}
+
+#przycisk a {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    color: #d81b60;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 25px; /* Kształt pigułki */
+    border: 2px solid #f8bbd0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+#przycisk a:hover {
+    background-color: #d81b60;
+    color: white;
+    transform: translateY(-3px); /* Przycisk lekko unosi się do góry */
+    box-shadow: 0 8px 20px rgba(216, 27, 96, 0.3);
+}
+
+/* --- GALERIA ZDJĘĆ --- */
+#nasze_zdjecia {
+    display: grid;
+    /* Magia Grida: Zdjęcia mają minimum 280px szerokości, ale rozciągają się, by wypełnić wolne miejsce */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Odstępy między zdjęciami */
+    max-width: 1000px; /* Maksymalna szerokość galerii na dużych ekranach */
+    margin: 0 auto; /* Wyśrodkowanie całej galerii */
+}
+
+/* --- POJEDYNCZE ZDJĘCIA (Efekt ramki) --- */
+#nasze_zdjecia img {
+    width: 100%;
+    height: 300px; /* Ujednolicamy wysokość wszystkich zdjęć */
+    object-fit: cover; /* Sprawia, że zdjęcia się nie zgniotą, jeśli mają inne proporcje */
+    border-radius: 12px; /* Lekko zaokrąglone rogi zdjęcia */
+    border: 8px solid white; /* Gruba biała ramka jak w zdjęciach wywołanych u fotografa */
+    box-shadow: 0 10px 25px rgba(216, 27, 96, 0.15); /* Różowy cień pod zdjęciem */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+/* --- EFEKT NAJECHANIA MYSZKĄ NA ZDJĘCIE --- */
+#nasze_zdjecia img:hover {
+    transform: scale(1.08) rotate(2deg); /* Zdjęcie się powiększa i delikatnie przekrzywia */
+    box-shadow: 0 15px 35px rgba(142, 36, 170, 0.3); /* Zmiana cienia na mocniejszy fiolet */
+    z-index: 10; /* Gwarantuje, że powiększone zdjęcie będzie NA WIERZCHU innych */
+    position: relative;
+}
+
+/* --- LIGHTBOX (Powiększanie zdjęć) --- */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Ciemne, półprzezroczyste tło */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 0.4s ease;
+}
+
+#lightbox.aktywny {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#lightbox img {
+    max-width: 90%; 
+    max-height: 90%; 
+    border-radius: 10px;
+    border: 5px solid white;
+    box-shadow: 0 0 30px rgba(216, 27, 96, 0.6); 
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+}
+
+#lightbox.aktywny img {
+    transform: scale(1);
+}
+
+#zamknij {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#zamknij:hover {
+    color: #f8bbd0; 
+    transform: scale(1.2); 
+}

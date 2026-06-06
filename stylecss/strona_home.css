@@ -1,0 +1,81 @@
+/* --- RESET PODSTAWOWY --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- TŁO STRONY --- */
+body {
+    /* Delikatny gradient łączący jasny róż i pastelowy fiolet */
+    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Środkuje wszystko na ekranie */
+    color: #4a148c; /* Główny, ciemnofioletowy kolor tekstu */
+}
+
+/* --- MENU NAWIGACYJNE --- */
+#main.menu {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Półprzezroczyste tło */
+    backdrop-filter: blur(8px); /* Efekt rozmytego szkła */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px 0;
+}
+
+#main.menu ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Odstępy między przyciskami */
+    list-style: none; /* Usuwa brzydkie kropki od listy */
+}
+
+#main.menu a {
+    text-decoration: none; /* Usuwa podkreślenie z linków */
+    color: #d81b60; /* Malinowy róż */
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; /* Płynne animacje */
+}
+
+/* Animacja po najechaniu myszką na link */
+#main.menu a:hover {
+    color: #8e24aa; /* Zmienia się na fioletowy */
+    text-shadow: 0 0 8px rgba(142, 36, 170, 0.4);
+}
+
+/* --- SEKCJA ODLICZANIA (BIAŁA KARTA) --- */
+#czas {
+    margin-top: 100px;
+    background-color: white;
+    padding: 40px 60px;
+    border-radius: 20px; /* Mocno zaokrąglone rogi */
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(216, 27, 96, 0.15); /* Różowa poświata pod kartą */
+    border: 2px solid #f8bbd0; /* Jasnoróżowa ramka */
+}
+
+#czas h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #8e24aa;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- SAME CYFERKI ZEGARA --- */
+#odliczanie {
+    font-size: 38px;
+    font-weight: 900;
+    
+    /* Magia CSS - robimy gradient TYLKO na tekście (róż -> fiolet) */
+    background: -webkit-linear-gradient(45deg, #d81b60, #8e24aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+}

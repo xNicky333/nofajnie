@@ -1,0 +1,28 @@
+const dzisiaj = new Date();
+let rokDocelowy = dzisiaj.getFullYear();
+let data_docelowa = new Date(rokDocelowy, 11, 13, 0, 0, 0).getTime();
+
+if(dzisiaj.getTime() > data_docelowa + 86400000){
+    rokDocelowy++;
+    data_docelowa = new Date(rokDocelowy, 11, 13, 0, 0, 0).getTime();
+}
+
+const zegar = setInterval(function(){
+    const teraz = new Date().getTime();
+    const zostalo = data_docelowa - teraz;
+    const pojemnik_na_zegar = document.getElementById("odliczanie");
+
+    if (pojemnik_na_zegar){
+        if (zostalo <= 0 && zostalo > -86400000){
+            pojemnik_na_zegar.innerHTML = "Wszystkiego najlepszego!";
+        } else {
+            const dni = Math.floor(zostalo / (1000*60*60*24));
+            const godziny = Math.floor((zostalo % (1000*60*60*24)) / (1000*60*60));
+            const minuty = Math.floor((zostalo % (1000 * 60 * 60)) / (1000 * 60));
+            const sekundy = Math.floor((zostalo % (1000 * 60)) / 1000);
+
+            pojemnik_na_zegar.innerHTML = 
+                dni + " dni " + godziny + " godz. " + minuty + " min. " + sekundy + " sek.";
+        }
+    }
+}, 1000);

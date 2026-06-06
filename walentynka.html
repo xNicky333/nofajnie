@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niespodzianka dla Martynki ❤️</title>
+    <link rel="stylesheet" href="stylecss/strona_walentynkowa.css">
+</head>
+<body>
+    <div id="przycisk">
+        <a href="home.html">Wróć na stronę główną</a>
+    </div>
+
+    <div id="haslo-modal">
+        <div class="box">
+            <h2>Tylko dla wtajemniczonych 💌</h2>
+            <p style="color: #8e24aa; margin-bottom: 15px;">Podaj tajne hasło:</p>
+            <input type="password" id="haslo-input" placeholder="Wpisz hasło...">
+            <button id="haslo-btn">Wejdź</button>
+            <p id="haslo-blad" style="color: #d81b60; display: none; margin-top: 15px; font-weight: bold;">Niepoprawne hasło, spróbuj ponownie!</p>
+        </div>
+    </div>
+
+    <div class="box" id="content" style="display: none;">
+        <h1>Czy zostaniesz moją walentynką? ❤️</h1>
+        
+        <div class="buttons-container">
+            <button id="yes">TAK</button>
+            <button id="no">NIE</button>
+        </div>
+    </div>
+
+    <script src="skrypty/walentynka.js"></script>
+</body>
+</html>
