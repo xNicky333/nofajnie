@@ -1,33 +1,3 @@
-// --- 1. OBSŁUGA HASŁA ---
-const hasloModal = document.getElementById("haslo-modal");
-const hasloInput = document.getElementById("haslo-input");
-const hasloBtn = document.getElementById("haslo-btn");
-const hasloBlad = document.getElementById("haslo-blad");
-const content = document.getElementById("content");
-
-const poprawneHaslo = "kochamcie"; 
-
-function sprawdzHaslo() {
-    if (hasloInput.value === poprawneHaslo) {
-        hasloModal.style.display = "none"; // Ukrywamy okienko z hasłem
-        content.style.display = "block"; // Pokazujemy walentynkę
-    } else {
-        hasloBlad.style.display = "block"; // Pokazujemy błąd
-        hasloInput.value = ""; // Czyścimy pole
-    }
-}
-
-// Sprawdzanie po kliknięciu przycisku "Wejdź"
-hasloBtn.addEventListener("click", sprawdzHaslo);
-
-// Sprawdzanie po wciśnięciu klawisza Enter
-hasloInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-        sprawdzHaslo();
-    }
-});
-
-
 const dzisiaj = new Date();
 let rokDocelowy = dzisiaj.getFullYear();
 let data_docelowa = new Date(rokDocelowy, 11, 13, 0, 0, 0).getTime();

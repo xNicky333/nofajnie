@@ -1,34 +1,4 @@
-// --- 1. OBSŁUGA HASŁA ---
-const hasloModal = document.getElementById("haslo-modal");
-const hasloInput = document.getElementById("haslo-input");
-const hasloBtn = document.getElementById("haslo-btn");
-const hasloBlad = document.getElementById("haslo-blad");
 const content = document.getElementById("content");
-
-const poprawneHaslo = "kochamcie"; 
-
-function sprawdzHaslo() {
-    if (hasloInput.value === poprawneHaslo) {
-        hasloModal.style.display = "none"; // Ukrywamy okienko z hasłem
-        content.style.display = "block"; // Pokazujemy walentynkę
-    } else {
-        hasloBlad.style.display = "block"; // Pokazujemy błąd
-        hasloInput.value = ""; // Czyścimy pole
-    }
-}
-
-// Sprawdzanie po kliknięciu przycisku "Wejdź"
-hasloBtn.addEventListener("click", sprawdzHaslo);
-
-// Sprawdzanie po wciśnięciu klawisza Enter
-hasloInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-        sprawdzHaslo();
-    }
-});
-
-
-// --- 2. RESZTA SKRYPTU (Przyciski i animacje) ---
 const yesBtn = document.getElementById("yes");
 const noBtn = document.getElementById("no");
 
@@ -41,47 +11,34 @@ yesBtn.addEventListener("click", function() {
     launchFireworks();
 });
 
-// --- LOGIKA PRZYCISKU NIE (Uciekanie po całym ekranie) ---
+// --- LOGIKA PRZYCISKU NIE ---
 let noCount = 0;
-
-// Tworzymy element licznika i dodajemy do głównego diva
 const noCounter = document.createElement("div");
 noCounter.className = "counter-text";
 content.appendChild(noCounter);
 
 function moveNo() {
-    // 1. Zmieniamy pozycję na "fixed", co uwalnia przycisk z białej karty
     noBtn.style.position = "fixed";
 
-    // 2. Pobieramy aktualne wymiary całego okna przeglądarki
-    // Odejmujemy szerokość/wysokość przycisku, żeby nie wyleciał za krawędź ekranu
     const maxSzerokosc = window.innerWidth - noBtn.offsetWidth;
     const maxWysokosc = window.innerHeight - noBtn.offsetHeight;
 
-    // 3. Losujemy nowe miejsce na ekranie
-    // Używamy Math.max(0, ...), żeby uniknąć wartości ujemnych
     const losowyX = Math.max(0, Math.random() * maxSzerokosc);
     const losowyY = Math.max(0, Math.random() * maxWysokosc);
 
-    // 4. Przypisujemy nowe współrzędne do przycisku
     noBtn.style.left = losowyX + "px";
     noBtn.style.top = losowyY + "px";
-    
-    // Resetujemy ewentualne stare transformacje
     noBtn.style.transform = "none";
 }
 
-// Uruchomienie ucieczki przy najeździe myszką
 noBtn.addEventListener("mouseover", moveNo);
 
-// Uruchomienie ucieczki przy dotyku na telefonie
 noBtn.addEventListener("touchstart", function(e) {
     e.preventDefault(); 
     moveNo();
     rejestrujKlikniecieNie(e.touches[0].clientX, e.touches[0].clientY);
 }, {passive: false});
 
-// Rejestrowanie ewentualnego kliknięcia (gdyby komuś się udało)
 noBtn.addEventListener("click", function(e) {
     rejestrujKlikniecieNie(e.clientX, e.clientY);
 });

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nasza strona</title>
     <link rel="stylesheet" href="stylecss/strona_home.css">
 </head>
 <body>
     <div id="haslo-modal">
-        <div class="box">
+        <div class="box-haslo">
             <h2>Tylko dla wtajemniczonych 💌</h2>
             <p style="color: #8e24aa; margin-bottom: 15px;">Podaj tajne hasło:</p>
             <input type="password" id="haslo-input" placeholder="Wpisz hasło...">
@@ -17,19 +17,24 @@
         </div>
     </div>
 
-    <div id="main" class="menu">
-        <ul>
-            <li id="walentynka"><a href="walentynka.html">WALENTYNKA</a></li>
-            <li id="fotki"><a href="fotki.html">ZDJĘCIA</a></li>
-        </ul>
-    </div>
+    <div id="zawartosc-strony" style="display: none; width: 100%;">
+        <div id="main" class="menu">
+            <ul>
+                <li id="walentynka"><a href="walentynka.html">WALENTYNKA</a></li>
+                <li id="fotki"><a href="fotki.html">ZDJĘCIA</a></li>
+                <li><a href="#">NASZA HISTORIA</a></li>
+            </ul>
+        </div>
 
-    <div id="czas">
-        <h2>Do rocznicy zostało:</h2>
-        <div id="odliczanie">
-            Trwa ładowanie...
-            <script src="skrypty/odliczanie.js"></script>
+        <div id="czas">
+            <h2>Do rocznicy zostało:</h2>
+            <div id="odliczanie">
+                Trwa ładowanie zegara...
+            </div>
         </div>
     </div>
+
+    <script src="skrypty/haslo.js"></script>
+    <script src="skrypty/odliczanie.js"></script>
 </body>
 </html>
