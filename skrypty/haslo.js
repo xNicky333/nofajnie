@@ -6,10 +6,22 @@ const zawartoscStrony = document.getElementById("zawartosc-strony");
 
 const poprawneHaslo = "kochamcie"; 
 
+// --- NOWE: 1. Sprawdzamy, czy przeglądarka "pamięta" logowanie ---
+if (sessionStorage.getItem("odblokowane") === "tak") {
+    // Jeśli tak, od razu ukrywamy okienko i pokazujemy stronę
+    hasloModal.style.display = "none";
+    zawartoscStrony.style.display = "flex";
+}
+
+// --- 2. Funkcja sprawdzająca wpisywane hasło ---
 function sprawdzHaslo() {
     if (hasloInput.value === poprawneHaslo) {
-        hasloModal.style.display = "none"; // Ukrywamy modal
-        zawartoscStrony.style.display = "flex"; // Odkrywamy stronę
+        
+        // --- NOWE: Zapisujemy w pamięci przeglądarki, że podano dobre hasło ---
+        sessionStorage.setItem("odblokowane", "tak");
+        
+        hasloModal.style.display = "none"; 
+        zawartoscStrony.style.display = "flex"; 
     } else {
         hasloBlad.style.display = "block"; 
         hasloInput.value = ""; 
