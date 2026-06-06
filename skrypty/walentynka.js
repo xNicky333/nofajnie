@@ -6,7 +6,7 @@ const noBtn = document.getElementById("no");
 yesBtn.addEventListener("click", function() {
     content.innerHTML = `
         <h1>Kocham Cię Martynka ❤️</h1>
-        <img src="piesek.JPG" alt="Nasze zdjęcie">
+        <img src="piesek.JPG" alt="zdjęcie billego">
     `;
     launchFireworks();
 });
